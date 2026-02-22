@@ -1,0 +1,68 @@
+select char_length("India ") as Result;
+
+select * from myemp limit 10;
+select concat(first_name," ",last_name) as Name from myemp limit 10;
+select concat("Population of India is"," " ,140," ","Billions") as Result;
+
+
+select lower("EXCELR") as Result;
+
+
+select upper("excelr") as Result;
+
+
+select left("United states of America",13) as Result;
+
+
+select left("United states of America",char_length("United states")) as Result;
+
+
+select right("United states of America",char_length("America")) as Result;
+
+
+select trim("    Hi   Adam     ") as Result;
+
+select ("    Hi   Adam     ") as Result;
+
+select replace("    Hi   Adam   "," ","") as Result;
+
+
+select substring("www.facebook.com",5) as Result;
+
+select substring("www.facebook.com",-3) as Result;
+
+select substring("www.facebook.com",5,8) as Result;
+
+select substring_index("www.facebook.com",".",1) as Result;
+
+select round(avg(salary),0) as Avg_Salary from myemp;
+
+
+select now();
+select curdate();
+select current_time();
+select date(now());
+select time(now());
+select month("2022-05-12");
+select monthname("2022-05-12");
+select day("2000-03-20");
+select dayname("2023-10-27");
+select quarter(now());
+select concat("Q",quarter(now()));
+select current_date;
+
+select week(now());
+select weekday(now());
+select hour(now());
+select minute(now());
+select second(now());
+
+
+select datediff("2023-01-20","2022-01-15");
+select timestampdiff(year,"2021-01-15","2023-01-15");
+select timestampdiff(month,"2021-01-15","2023-01-15");
+select timestampdiff(day,"2021-01-15","2023-01-15");
+
+select date_format(now(),"%d-%m-%y");
+select date_format(now(),"%D %M %Y");
+select date_format(now(),"%d-%m-%y %h:%i:%s %p");

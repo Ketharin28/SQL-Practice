@@ -1,0 +1,57 @@
+-- some more objects are there in mysql , views (used to hide select query)
+-- we have written a select query , but dont want to show that select query command but only see the output 
+-- view is going to hold select query output 
+-- select * from movies; 
+-- select * from members; 
+-- select id, title, ifnull(first_name, '-') as first_name, ifnull(last_name, '-') as last_name from movies left join members on movies.id = members.movieid;
+-- create view rentals as select id, title, ifnull(first_name, '-') as first_name, ifnull(last_name, '-') as last_name from movies left join members on movies.id = members.movieid;
+-- select * from rentals; 
+-- no need of writing left join query always, just say select * from rentals;
+-- view can never hold data , remember
+-- view is like a temporary table or virtual table 
+-- you can limit the access of a table
+-- select * from myemp where dep_id=60;
+-- create view dep_60 as select * from myemp where dep_id=60;
+-- select * from dep_60; 
+-- show tables; 
+-- all views will be showed in the list of tables
+-- select * from authors;  
+-- select * from books; 
+-- insert into Authors values(1,'J K Rowling'); 
+-- update authors set authorid=7 where authorid=70; 
+-- insert into Books values(1,'Harry Potter and the Philosopher\'s Stone',1); 
+-- insert into Books values(2,'Harry Potter and the Chamber of Secrets',1); 
+-- insert into Books values(3,'Harry Potter and the Half-Blood Prince',1); 
+-- insert into Books values(4,'Harry Potter and the Goblet of Fire',1); 
+-- create view aview as select * from authors where authorid<5; 
+-- can we update , insert , delete a record through view , this will also affect the main original underlying table 
+-- insert into aview values(10,"khureshi");
+-- select * from aview; 
+-- select * from authors;  
+-- what we have exceuted here is incorrect , ideally it should not accept the value , it should not create a record in the original table
+-- so use view with check option 
+-- drop view aview; 
+-- create view aview as select * from authors where authorid<5 with check option; 
+-- insert into aview values(11,"khalid") , you are going to get error 
+-- delete from aview where authorid=2; 
+-- select * from authors; - it will show in the main table (it is possible to insert a record through view, delete a record from view), it is only possible in case of simple views
+-- select query should not have group by,order by,having clauses then these are simple views and also data is coming from a single table is also a simple view
+-- what is an index - it is used to minimize the time take for sql query to extract information , increase the performance of select query 
+-- based on structure of table, there are btree(balanced tree -binary search methodology) and hash index(hash function)
+-- based on data , unique, spatial and text index
+-- by default indexes will be constructed on those columns that have primary key constraint or unique key constraint
+-- index will be created on particular tables and on particular columns other than primary key and unique key columns
+-- how to know which columns where i can apply index to imcrease the performance of select query
+-- based on requirement, if you are applying more conditions on salary in myemp table, then use index on salary column 
+-- show indexes on table
+-- create table pupils(sid int unique, sname varchar(50), age int, course varchar(50)); 
+-- or work with class table
+-- show indexes from class; 
+-- mostly we work with btree index , it will work in all scenarios
+-- where as hash index will work only in conditions like == , and != to conditions only, hash index is more faster however in retreiving results from select query 
+-- create index uidx myemp(salary); 
+-- show indexes from myemp; 
+-- dont create indexes on tables where you have less number of records 
+-- when you are working with more records create index 
+--  when you have frequent read operations, infrequent write operations 
+ 

@@ -1,0 +1,25 @@
+-- select * from myemp; 
+-- select * from myemp limit 10; 
+-- select emp_id, first_name, last_name, salary from myemp limit 10; 
+-- select emp_id, first_name, last_name, salary, 0.15*salary from myemp limit 10;
+-- select emp_id, first_name, last_name, salary, 0.15*salary as bonus from myemp limit 10;
+-- select distinct dep_id from myemp; 
+-- select distinct job_id from myemp; 
+-- select distinct dep_id, mgr_id from myemp; 
+-- select * from myemp order by salary; 
+-- select * from myemp order by salary desc; 
+-- select dep_id, mgr_id from myemp order by dep_id, mgr_id;
+-- select dep_id, mgr_id from myemp order by dep_id, mgr_id desc;
+
+-- select * from myemp where dep_id=50;
+-- select * from myemp where salary>10000;
+-- select * from myemp where salary>10000 order by salary; 
+-- select * from myemp where hire_date>="2000-12-31" order by hire_date; 
+-- select * from patients; 
+-- select dob from patients; 
+-- select year(dob) from patients; 
+-- select * from myemp where year(hire_date)>2000; 
+-- select * from myemp where year(hire_date)>2000 order by hire_date;
+-- select * from myemp where salary between 1000 and 15000 order by salary;
+-- select * from myemp where salary>10000 and dep_id=80;
+

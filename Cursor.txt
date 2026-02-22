@@ -1,0 +1,24 @@
+
+
+
+
+declare lcl_pcode varchar(15);     -- 5
+declare lcl_pvendor varchar(50);   -- 6
+declare lcl_qty,finished integer default 0;  -- 7
+declare prod_cur cursor for select pcode,pvendor,qtyinstock from products; -- 1
+declare continue handler for NOT FOUND  -- 9
+begin
+set finished=1;
+end;
+open prod_cur;   -- 2
+prodloop:loop    -- 3
+fetch prod_cur into lcl_pcode,lcl_pvendor,lcl_qty;  -- 4
+if finished =1 then
+leave prodloop;
+end if;
+if lcl_qty<2000 then   -- 8
+insert into orders(product_code,vendor,status) values(lcl_pcode,lcl_pvendor,"Immediate");
+elseif lcl_qty between 2000 and 5000 then
+insert into orders(product_code,vendor,status) values(lcl_pcode,lcl_pvendor,"Needed soon");
+end if;
+end loop prodloop;

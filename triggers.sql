@@ -1,0 +1,17 @@
+-- triggers example 
+-- alter table books add column sales int default 0; 
+-- triggers will be created on tables 
+-- books table, click on the spanner button , go to trigger select after update trigger option 
+-- BEGIN
+-- declare qty int default 0; 
+-- set qty=new.sales-old.sales;
+-- insert into book_sales(bookid,title,qty_sold,tos) values(old.bookid,old.title,qty,now()); 
+-- END
+
+-- go to books table 
+-- update books set sales=sales+2 where bookid=1; 
+-- select * from books; 
+-- select * from book_sales; 
+-- update books set sales=sales+4 where bookid=1; 
+-- select * from books; 
+-- select * from book_sales; 
